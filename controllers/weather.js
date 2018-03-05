@@ -8,12 +8,7 @@ exports.getWeather = (req, res) => {
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${api_key}`
 
   return axios.get(url)
-  .then( res => {
-    return {
-      city : res.data.name,
-      temp : res.data.main.temp
-    }
-  })
+  .then( res => res.data )
   .catch(err => {
     console.log(err);
   })
