@@ -1,9 +1,9 @@
 const config = require("../config/config");
 const axios = require("axios");
 
-exports.getWeather = cname => {
+exports.getWeather = cityName => {
   let api_key = config.owm_api_key;
-  let city = cname || "knoxville";
+  let city = cityName || "knoxville";
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${api_key}`;
 
   return axios

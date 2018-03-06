@@ -3,7 +3,12 @@ const weather = require("../controllers/weather");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  res.render("./pages/weather");
+  weather.getWeather().then(wdata => {
+    res.render("./pages/weather", {
+      city: wdata.city,
+      temp: wdata.temp
+    });
+  });
 });
 
 router.post("/", (req, res) => {
