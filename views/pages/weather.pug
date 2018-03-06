@@ -2,12 +2,13 @@ extends ../layout
 
 block content
   p This is the Weather Page
-  |
-  p This is additional content
-  |
-  p The temperature in #{city} is #{temp} degrees Fahrenheit.
-  form
+
+  p Enter a city below to check the temperature:
+  form(method="post")
     .form-row
       .form-group.col-md-6
         label(for="city") City
-        input.form-control#city(type="text" placeholder="Enter City")
+        input.form-control#city(type="text" placeholder="Enter City" name="city")
+        button.btn.btn-primary(type="submit") Submit
+  p The temperature in #{city} is #{temp} degrees Fahrenheit.
+
