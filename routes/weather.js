@@ -8,8 +8,8 @@ router.get("/", (req, res) => {
     .getWeather()
     .then(wdata => {
       res.render("./pages/weather", {
-        city: wdata.name,
-        temp: wdata.main.temp
+        city: wdata.city,
+        temp: wdata.temp
       });
       //logging just to make sure I have the data
       console.log(wdata);

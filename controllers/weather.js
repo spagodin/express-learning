@@ -8,9 +8,13 @@ exports.getWeather = () => {
 
   return axios
     .get(url)
-    .then(res => res.data)
+    .then(res => {
+      return {
+        city: res.data.name,
+        temp: res.data.main.temp
+      };
+    })
     .catch(err => {
-      //custom console
       console.log(err);
     });
 };
